@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Checkout = (props) => {
+  const { itemsInCart } = props;
+
   return (
     <div className="checkout">
       <div>
@@ -12,8 +14,7 @@ const Checkout = (props) => {
       </div>
 
       <div className="items-in-cart">
-        {props.itemsInCart.map((item) => {
-          console.log(props.itemsInCart);
+        {itemsInCart.map((item) => {
           return (
             <div className="item" key={item.id}>
               <div
@@ -34,6 +35,7 @@ const Checkout = (props) => {
                   </div>
                 </div>
               </div>
+              <button id={item.id} className="remove-from-cart"></button>
             </div>
           );
         })}

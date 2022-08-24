@@ -12,7 +12,7 @@
 
 #root {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1.5fr 5fr;
   grid-template-rows: 0.5fr 5fr;
   height: 100vh;
 }
@@ -43,10 +43,58 @@ main {
 
 .active {
   color: var(--main-color);
-  padding: 20px;
   border-radius: 20px;
   box-sizing: border-box;
   background-color: #eef5ff;
+}
+
+.ablum {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  gap: 50px;
+  margin: 0 auto;
+}
+
+.ablums-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.album-info > h2 {
+  font-weight: lighter;
+  font-size: 1.5rem;
+  color: black;
+  margin: 0;
+}
+
+.album-info > p {
+  font-weight: lighter;
+  font-size: 0.8rem;
+  color: black;
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+.types {
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  margin-right: 20px;
+  font-size: 0.8rem;
+  background-color: var(--main-color);
+}
+.album-cover {
+  border-radius: 15px;
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
 }
 
 .editors-container {
@@ -121,6 +169,7 @@ main {
   gap: 15px;
   align-items: center;
   justify-items: center;
+  justify-content: space-between;
 }
 .quantity > button {
   background-color: white;
@@ -154,8 +203,8 @@ main {
 
 .images {
   background-color: white;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 15px;
   background-size: cover;
 }
@@ -192,18 +241,19 @@ ul {
   list-style: none;
   padding: 0;
   box-sizing: border-box;
+  width: 80%;
 }
 
 li {
   width: 100%;
-  padding: 10px;
+  padding: 25px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 1.2rem;
   gap: 30px;
   display: flex;
   align-items: center;
-  margin: 40px 0;
+  margin: 5px 0;
   border-radius: 15px;
 }
 
@@ -220,13 +270,13 @@ li {
 }
 
 .sidebar {
+  padding: 0px 30px;
   display: grid;
-  justify-content: center;
   grid-template-rows: 0.5fr 6fr;
   align-items: center;
   border-right: var(--border-color) solid 1px;
   grid-row: 1/3;
-  height: 100vh;
+  background-color: var(--bg-color);
 }
 
 .store-container > p {
@@ -263,10 +313,23 @@ button {
   padding: 25px;
   color: white;
   font-size: 1.1rem;
-
   border-radius: 15px;
   background-color: var(--main-color);
   font-family: 'Gilroy-Medium', sans-serif;
+}
+
+.remove-from-cart {
+  background-color: white;
+  color: #5e239d;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-weight: bolder;
+  justify-content: center;
+  align-self: flex-start;
+  border-radius: 10px;
 }
 
 .homepage-text {

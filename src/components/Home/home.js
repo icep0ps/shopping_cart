@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <main>
-      <div class="hero">
+      <div className="hero">
         <div className="homepage-text">
-          <h1>Camp Lukewarm Out Now</h1>
+          <h1>Camp lukewarm Out Now</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -40,7 +40,9 @@ function Home() {
                   <h4>{tree.name}</h4>
                   <p>Montell Fish</p>
                   <button className="add-to-cart" id={tree.id}>
-                    <span class="material-symbols-rounded">shopping_cart</span>
+                    <span className="material-symbols-rounded">
+                      shopping_cart
+                    </span>
                   </button>
                   <div className="purchase-details" id={tree.id}>
                     <p id="description">{tree.description}</p>

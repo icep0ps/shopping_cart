@@ -3,6 +3,7 @@ import inventory from './inventory';
 import { Link } from 'react-router-dom';
 
 const Shop = (props) => {
+  console.log(props);
   return (
     <div className="store-container">
       <div>
@@ -29,7 +30,9 @@ const Shop = (props) => {
                 <h4>{tree.name}</h4>
                 <p>Montell Fish</p>
                 <button className="add-to-cart" id={tree.id}>
-                  <span class="material-symbols-rounded">shopping_cart</span>
+                  <span className="material-symbols-rounded">
+                    shopping_cart
+                  </span>
                 </button>
                 <div className="purchase-details" id={tree.id}>
                   <p id="description">{tree.description}</p>

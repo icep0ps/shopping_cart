@@ -13,7 +13,7 @@ const Router = () => {
       <Sidebar></Sidebar>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/shop" element={<Shop loaded={true} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/shop/ablums/:id" element={<About />}></Route>
       </Routes>
