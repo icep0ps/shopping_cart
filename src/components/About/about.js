@@ -27,10 +27,37 @@ function About() {
           </div>
         </div>
       </section>
-      <section>
+      <section className="traklist">
         <div className="track">
-          <p>Wars</p>
-          <p>Lords Child, Montell Fish</p>
+          <span>1</span>
+          <div>
+            <p className="title">Camp</p>
+            <p>Lords Child, Montell Fish</p>
+          </div>
+        </div>
+
+        <div className="track">
+          <span>2</span>
+          <div>
+            <p className="title">Peter</p>
+            <p>Lords Child, Montell Fish</p>
+          </div>
+        </div>
+
+        <div className="track">
+          <span>3</span>
+          <div>
+            <p className="title">Crumble</p>
+            <p>Lords Child, Montell Fish</p>
+          </div>
+        </div>
+
+        <div className="track">
+          <span>4</span>
+          <div>
+            <p className="title">Glory</p>
+            <p>Lords Child, Montell Fish</p>
+          </div>
         </div>
       </section>
     </div>

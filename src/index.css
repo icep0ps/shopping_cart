@@ -48,6 +48,11 @@ main {
   background-color: #eef5ff;
 }
 
+.traklist {
+  display: grid;
+  gap: 10px;
+}
+
 .ablum {
   display: flex;
   margin: 0 auto;
@@ -59,6 +64,11 @@ main {
 .ablums-container {
   width: 90%;
   margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 30px;
 }
 
 .album-info > h2 {
@@ -86,9 +96,51 @@ main {
   padding: 10px;
   border-radius: 15px;
   margin-right: 20px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   background-color: var(--main-color);
 }
+.track {
+  display: flex;
+  padding: 10px;
+  gap: 15px;
+  border-radius: 15px;
+}
+
+.track:hover {
+  cursor: pointer;
+  background-color: #eae8ff;
+}
+
+.track > span {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+li {
+  width: 100%;
+  padding: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  gap: 30px;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  border-radius: 15px;
+}
+
+.traklist .track:nth-child(even) {
+  background-color: #ececec;
+}
+
+.traklist .track:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+.track > div > p {
+  color: black;
+}
+
 .album-cover {
   border-radius: 15px;
   height: 300px;
@@ -242,19 +294,6 @@ ul {
   padding: 0;
   box-sizing: border-box;
   width: 80%;
-}
-
-li {
-  width: 100%;
-  padding: 25px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 1.2rem;
-  gap: 30px;
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-  border-radius: 15px;
 }
 
 .sidebar > div > h3 {
