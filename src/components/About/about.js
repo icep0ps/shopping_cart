@@ -1,67 +1,45 @@
 import React from 'react';
+import inventory from '../Shop/inventory';
+import { useParams } from 'react-router-dom';
 
-function About() {
+const About = (props) => {
+  const { id } = useParams();
+  const match = inventory.filter((ablum) => ablum.id === id)[0];
   return (
     <div className="ablums-container">
       <section className="ablum">
         <div
           className="album-cover"
           style={{
-            backgroundImage: `url('https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2Fa32c4772671773907170a67788e8e5c2.600x600x1.jpg')`,
+            backgroundImage: `url('${match.image}')`,
           }}
         ></div>
         <div className="album-info">
-          <h1>Camp Lukewarm</h1>
-          <h2>Montell Fish</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          </p>
+          <h1>{match.name}</h1>
+          <h2>{match.artist}</h2>
+          <p>{match.description}</p>
           <div>
-            <span className="types">Christain</span>
-            <span className="types">Alternitive</span>
+            {match.genres.map((genre) => {
+              return <span className="types">{genre}</span>;
+            })}
           </div>
         </div>
       </section>
       <section className="traklist">
-        <div className="track">
-          <span>1</span>
-          <div>
-            <p className="title">Camp</p>
-            <p>Lords Child, Montell Fish</p>
-          </div>
-        </div>
-
-        <div className="track">
-          <span>2</span>
-          <div>
-            <p className="title">Peter</p>
-            <p>Lords Child, Montell Fish</p>
-          </div>
-        </div>
-
-        <div className="track">
-          <span>3</span>
-          <div>
-            <p className="title">Crumble</p>
-            <p>Lords Child, Montell Fish</p>
-          </div>
-        </div>
-
-        <div className="track">
-          <span>4</span>
-          <div>
-            <p className="title">Glory</p>
-            <p>Lords Child, Montell Fish</p>
-          </div>
-        </div>
+        {match.trackList.map((track) => {
+          return (
+            <div className="track">
+              <span>{track.no}</span>
+              <div>
+                <p className="title">{track.title}</p>
+                <p>{track.artists}</p>
+              </div>
+            </div>
+          );
+        })}
       </section>
     </div>
   );
-}
+};
 
 export default About;

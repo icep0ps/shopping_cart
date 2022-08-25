@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Checkout from '../checkout';
 import inventory from '../inventory';
-import Cart from './cart';
 
 const ShoppingCart = () => {
   const [counter, setCounter] = useState(0);
   const [itemsInCart, setItemsInCart] = useState([]);
   const [checkout, setCheckout] = useState(false);
+  const location = useLocation();
 
   const changeStatus = () => {
     setCheckout(!checkout);
@@ -16,19 +18,23 @@ const ShoppingCart = () => {
   };
 
   const removeFromCart = (itemID) => {
-    return itemsInCart.filter((item) => item.id !== itemID);
+    const newArray = itemsInCart.filter((item) => item.id !== itemID);
+    setItemsInCart(newArray);
   };
 
   const handleAddToCartEvent = (event) => {
     const PRODUCT_ID = event.currentTarget.id;
-    setItemsInCart(itemsInCart.concat(itemAddedToCart(PRODUCT_ID)));
-    setCounter(counter + 1);
+    setItemsInCart((prevItems) =>
+      prevItems.concat(itemAddedToCart(PRODUCT_ID))
+    );
+    setCounter((prevCount) => prevCount + 1);
+    console.log(itemsInCart);
   };
 
   const handleRmoveFromCartEvent = (event) => {
     const PRODUCT_ID = event.currentTarget.id;
-    setItemsInCart(removeFromCart(PRODUCT_ID));
-    setCounter(counter - 1);
+    setCounter((prevCount) => prevCount - 1);
+    removeFromCart(PRODUCT_ID);
   };
 
   useEffect(() => {
@@ -51,15 +57,26 @@ const ShoppingCart = () => {
         button.removeEventListener('click', handleRmoveFromCartEvent);
       });
     };
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location, checkout, counter]);
 
   return (
-    <Cart
-      itemsInCart={itemsInCart}
-      checkout={checkout}
-      handleCheckout={changeStatus}
-      counter={counter}
-    />
+    <div>
+      <div
+        id="shopping-cart"
+        className="material-symbols-rounded"
+        onClick={changeStatus}
+      >
+        shopping_cart
+        <span>{counter}</span>
+      </div>
+      <Checkout
+        itemsInCart={itemsInCart}
+        handleCheckout={changeStatus}
+        checkingOut={checkout}
+      />
+      ;
+    </div>
   );
 };
 export default ShoppingCart;

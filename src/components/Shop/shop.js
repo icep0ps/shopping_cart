@@ -2,8 +2,7 @@ import React from 'react';
 import inventory from './inventory';
 import { Link } from 'react-router-dom';
 
-const Shop = (props) => {
-  console.log(props);
+const Shop = () => {
   return (
     <div className="store-container">
       <div>
@@ -18,17 +17,17 @@ const Shop = (props) => {
         {inventory.map((tree) => {
           return (
             <div key={tree.id} id="product">
-              <Link to={`/shop/ablums/${tree.id}`}>
+              <Link to={`/shop/${tree.id}`}>
                 <div
                   id="Image"
                   style={{
-                    backgroundImage: `url('https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2Fa32c4772671773907170a67788e8e5c2.600x600x1.jpg')`,
+                    backgroundImage: `url('${tree.image}')`,
                   }}
                 ></div>
               </Link>
               <div className="product-details">
                 <h4>{tree.name}</h4>
-                <p>Montell Fish</p>
+                <p>{tree.artist}</p>
                 <button className="add-to-cart" id={tree.id}>
                   <span className="material-symbols-rounded">
                     shopping_cart
