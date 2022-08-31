@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Checkout = (props) => {
   const { itemsInCart, handleCheckout, checkingOut } = props;
 
   const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    let calcTotal = 0;
+    itemsInCart.forEach((item) => {
+      calcTotal += item.price * item.getQuantity;
+    });
+    setTotal((prevTotal) => (prevTotal = calcTotal));
+  }, [itemsInCart]);
 
   const getAlbum = (itemID) => {
     const filtered = itemsInCart.filter((item) => {
@@ -50,7 +58,7 @@ const Checkout = (props) => {
                 ></div>
                 <div className="text">
                   <h4>{item.name}</h4>
-                  <p>Montell Fish</p>
+                  <p>{item.artits}</p>
                   <div className="subtotal">
                     <p>Price: {item.price} USD</p>
                     <div className="quantity">

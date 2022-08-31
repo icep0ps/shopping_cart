@@ -25,29 +25,29 @@ function Home() {
           et magnis dis parturient montes, nascetur ridiculus mus.
         </p>
         <div className="products">
-          {Editors.map((tree) => {
+          {Editors.map((item) => {
             return (
-              <div key={tree.id} id="product">
-                <Link to={`/shop/product/${tree.id}`}>
+              <div key={item.id} id="product">
+                <Link to={`/shop/${item.id}`}>
                   <div
                     id="Image"
                     style={{
-                      backgroundImage: `url('https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2Fa32c4772671773907170a67788e8e5c2.600x600x1.jpg')`,
+                      backgroundImage: `url('${item.image}')`,
                     }}
                   ></div>
                 </Link>
                 <div className="product-details">
-                  <h4>{tree.name}</h4>
-                  <p>Montell Fish</p>
-                  <button className="add-to-cart" id={tree.id}>
+                  <h4>{item.name}</h4>
+                  <p>{item.artist}</p>
+                  <button className="add-to-cart" id={item.id}>
                     <span className="material-symbols-rounded">
                       shopping_cart
                     </span>
                   </button>
-                  <div className="purchase-details" id={tree.id}>
-                    <p id="description">{tree.description}</p>
+                  <div className="purchase-details" id={item.id}>
+                    <p id="description">{item.description}</p>
                     <div className="price">
-                      <p id="price">$ {tree.price} </p>
+                      <p id="price">$ {item.price} </p>
                     </div>
                   </div>
                 </div>

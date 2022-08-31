@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import Checkout from './checkout';
 import inventory from '../inventory';
 
-
 const ShoppingCart = () => {
   const [counter, setCounter] = useState(0);
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -23,13 +22,18 @@ const ShoppingCart = () => {
     setItemsInCart(newArray);
   };
 
+  const itemExistsInCart = (PRODUCT_ID) => {
+    return itemsInCart.some((item) => item.id === PRODUCT_ID);
+  };
+
   const handleAddToCartEvent = (event) => {
     const PRODUCT_ID = event.currentTarget.id;
-    setItemsInCart((prevItems) =>
-      prevItems.concat(itemAddedToCart(PRODUCT_ID))
-    );
-    setCounter((prevCount) => prevCount + 1);
-    console.log(itemsInCart);
+    if (!itemExistsInCart(PRODUCT_ID)) {
+      setItemsInCart((prevItems) =>
+        prevItems.concat(itemAddedToCart(PRODUCT_ID))
+      );
+      setCounter((prevCount) => prevCount + 1);
+    }
   };
 
   const handleRmoveFromCartEvent = (event) => {

@@ -22,16 +22,13 @@ const Nav = () => {
         <Link to="/shop">
           <li onClick={addAtiveClass}>Shop</li>
         </Link>
-        <Link to="/about">
-          <li onClick={addAtiveClass}>About</li>
-        </Link>
-        <Link to="/">
+        <Link to="#">
           <li onClick={addAtiveClass}>Artists</li>
         </Link>
-        <Link to="/shop">
+        <Link to="#">
           <li onClick={addAtiveClass}>Trending</li>
         </Link>
-        <Link to="/about">
+        <Link to="#">
           <li onClick={addAtiveClass}>Charts</li>
         </Link>
       </ul>
