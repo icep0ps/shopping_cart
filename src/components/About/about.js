@@ -14,7 +14,7 @@ const About = (props) => {
             backgroundImage: `url('${match.image}')`,
           }}
         ></div>
-        <div className="album-info">
+        <div className="album-info" key={match.id}>
           <h1>{match.name}</h1>
           <h2>{match.artist}</h2>
           <p>{match.description}</p>
@@ -28,7 +28,7 @@ const About = (props) => {
       <section className="traklist">
         {match.trackList.map((track) => {
           return (
-            <div className="track">
+            <div className="track" key={track.no}>
               <span>{track.no}</span>
               <div>
                 <p className="title">{track.title}</p>

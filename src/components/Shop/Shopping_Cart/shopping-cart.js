@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Checkout from '../checkout';
+import Checkout from './checkout';
 import inventory from '../inventory';
+
 
 const ShoppingCart = () => {
   const [counter, setCounter] = useState(0);
@@ -66,6 +67,7 @@ const ShoppingCart = () => {
         id="shopping-cart"
         className="material-symbols-rounded"
         onClick={changeStatus}
+        data-testid="Shopping-cart"
       >
         shopping_cart
         <span>{counter}</span>

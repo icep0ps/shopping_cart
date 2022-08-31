@@ -1,8 +1,9 @@
 import React from 'react';
-import inventory from './inventory';
 import { Link } from 'react-router-dom';
+const { v4: uuidv4 } = require('uuid');
 
-const Shop = () => {
+const Shop = (props) => {
+  const { inventory } = props;
   return (
     <div className="store-container">
       <div>
@@ -13,10 +14,10 @@ const Shop = () => {
           et magnis dis parturient montes, nascetur ridiculus mus.
         </p>
       </div>
-      <div className="products">
+      <div className="products" data-testid="products">
         {inventory.map((tree) => {
           return (
-            <div key={tree.id} id="product">
+            <div key={tree.id} id="product" data-testid="product">
               <Link to={`/shop/${tree.id}`}>
                 <div
                   id="Image"

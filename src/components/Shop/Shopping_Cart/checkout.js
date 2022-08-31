@@ -8,7 +8,6 @@ const Checkout = (props) => {
         <div>
           <p>Ready to checkout</p>
         </div>
-
         <div className="items-in-cart">
           {itemsInCart.map((item) => {
             return (
