@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 
 class Album {
+  #quantity;
   constructor(name, artist, image, genres, description, price, trackList) {
     this.id = uuidv4();
     this.name = name;
@@ -10,9 +11,23 @@ class Album {
     this.description = description;
     this.price = price;
     this.trackList = trackList;
+    this.#quantity = 1;
+  }
+
+  get getQuantity() {
+    return this.#quantity;
+  }
+
+  IncreaseQuantity() {
+    this.#quantity++;
+  }
+
+  DecreaseQuantity() {
+    if (this.#quantity > 0) {
+      this.#quantity--;
+    }
   }
 }
-
 class Track {
   constructor(no, title, artists) {
     this.no = no;
@@ -91,5 +106,5 @@ const Amen = new Album(
 
 const inventory = [Camp_Lukewarm, Amen, Feelings, Modus_Vivendi];
 
-export const Editors = [Modus_Vivendi, Camp_Lukewarm, Amen];
+export const Editors = [Modus_Vivendi, Camp_Lukewarm, Amen, Amen];
 export default inventory;
